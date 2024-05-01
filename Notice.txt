@@ -1,0 +1,1 @@
+需要在 "C:\Users\%username%\AppData\Local\Programs\Python\Python310\Lib\site-packages\airtest\core\android\adb.py" 文件中把L128~L131注释掉
