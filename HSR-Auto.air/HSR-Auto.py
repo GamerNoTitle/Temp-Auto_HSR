@@ -121,9 +121,13 @@ touch(Template(r"tpl1714573801882.png", record_pos=(0.29, -0.251), resolution=(1
 if exists(Template(r"tpl1714644495682.png", record_pos=(-0.285, -0.192), resolution=(1920, 1080))):
     touch(Template(r"tpl1714644512163.png", record_pos=(-0.283, -0.192), resolution=(1920, 1080)))
 while exists(Template(r"tpl1714573812821.png", record_pos=(-0.308, 0.169), resolution=(1920, 1080))):
-    touch(Template(r"tpl1714573807035.png", record_pos=(-0.309, 0.17), resolution=(1920, 1080)))
-touch(Template(r"tpl1714573827995.png", record_pos=(-0.189, -0.131), resolution=(1920, 1080)))
-touch(Template(r"tpl1714578350384.png", record_pos=(-0.001, 0.196), resolution=(1920, 1080)))
+    if find_all(Template(r"tpl1714573812821.png", record_pos=(-0.308, 0.169), resolution=(1920, 1080))):
+        if find_all(Template(r"tpl1714573812821.png", record_pos=(-0.308, 0.169), resolution=(1920, 1080)))[0]['confidence']>0.9:
+            touch(Template(r"tpl1714573807035.png", record_pos=(-0.309, 0.17), resolution=(1920, 1080)))
+        else: break
+if exists(Template(r"tpl1714573827995.png", record_pos=(-0.189, -0.131), resolution=(1920, 1080))):
+    touch(Template(r"tpl1714573827995.png", record_pos=(-0.189, -0.131), resolution=(1920, 1080)))
+    touch(Template(r"tpl1714578350384.png", record_pos=(-0.001, 0.196), resolution=(1920, 1080)))
 sleep(2)
 touch(Template(r"tpl1714573833739.png", record_pos=(0.462, -0.253), resolution=(1920, 1080)))
 touch(Template(r"tpl1714579277821.png", record_pos=(0.183, -0.252), resolution=(1920, 1080)))
