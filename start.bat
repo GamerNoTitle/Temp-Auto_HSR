@@ -20,4 +20,3 @@ set hour=%datetime:~8,2%
 set minute=%datetime:~10,2%
 set formatted_time=%year%-%month%-%day% %hour%-%minute%
 airtest report HSR-Auto.air --log_root log --outfile "logs/hsr/%formatted_time%.html" --lang zh
-pause
