@@ -45,7 +45,7 @@ schedule.every().day.at("10:00").do(run_check_update_script)
 
 # 在每天的4:30、12:30、20:30运行 MAA.exe
 schedule.every().day.at("04:30").do(run_maa_exe)
-schedule.every().day.at("12:30").do(run_maa_exe)
+schedule.every().day.at("12:45").do(run_maa_exe)
 schedule.every().day.at("20:30").do(run_maa_exe)
 
 print('Scheduling tasks...')

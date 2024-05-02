@@ -2,9 +2,11 @@
 __author__ = "GamerNoTitle"
 
 from airtest.core.api import *
-#import os
-#os.system(r'adb connect 127.0.0.1:7555')
-#sleep(180)
+from airtest.report.report import simple_report
+import time
+from datetime import datetime
+
+timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 auto_setup(__file__, devices=["Android://127.0.0.1:7555"])
 # auto_setup(__file__)
 # 当模拟器启动完成时，桌面有崩铁的字
@@ -104,12 +106,20 @@ while battle:
     touch(Template(r"tpl1714572492801.png", record_pos=(-0.368, 0.063), resolution=(1920, 1080)))
     touch(Template(r"tpl1714572497611.png", record_pos=(0.346, 0.236), resolution=(1920, 1080)))
     touch(Template(r"tpl1714572503080.png", record_pos=(0.341, 0.233), resolution=(1920, 1080)))
-    while not exists(Template(r"tpl1714572607979.png", record_pos=(-0.158, 0.194), resolution=(1920, 1080))):
-        sleep(1)
+    while True:
+        if find_all(Template(r"tpl1714572607979.png", record_pos=(-0.158, 0.194), resolution=(1920, 1080))):    # 找不到的时候会返回None
+            if find_all(Template(r"tpl1714572607979.png", record_pos=(-0.158, 0.194), resolution=(1920, 1080)))[0]['confidence']>0.9:
+                break
+        sleep(10)
     touch(Template(r"tpl1714572610405.png", record_pos=(-0.159, 0.195), resolution=(1920, 1080)))
+    sleep(5)
 touch(Template(r"tpl1714582031337.png", record_pos=(0.462, -0.253), resolution=(1920, 1080)))
+
 sleep(3)
 touch(Template(r"tpl1714573801882.png", record_pos=(0.29, -0.251), resolution=(1920, 1080)))
+# 因为有的时候进去的页面不是每日实训，所以检测一下点一下
+if exists(Template(r"tpl1714644495682.png", record_pos=(-0.285, -0.192), resolution=(1920, 1080))):
+    touch(Template(r"tpl1714644512163.png", record_pos=(-0.283, -0.192), resolution=(1920, 1080)))
 while exists(Template(r"tpl1714573812821.png", record_pos=(-0.308, 0.169), resolution=(1920, 1080))):
     touch(Template(r"tpl1714573807035.png", record_pos=(-0.309, 0.17), resolution=(1920, 1080)))
 touch(Template(r"tpl1714573827995.png", record_pos=(-0.189, -0.131), resolution=(1920, 1080)))
@@ -130,6 +140,3 @@ if exists(Template(r"tpl1714582489696.png", record_pos=(0.177, 0.241), resolutio
 
 touch(Template(r"tpl1714579326813.png", record_pos=(0.463, -0.255), resolution=(1920, 1080)))
 
-
-    
-    

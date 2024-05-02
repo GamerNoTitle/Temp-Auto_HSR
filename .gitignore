@@ -2,3 +2,4 @@ hsr.apk
 log
 updated
 *.log
+__pycache__
