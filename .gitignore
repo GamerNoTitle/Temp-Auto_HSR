@@ -3,3 +3,4 @@ log
 updated
 *.log
 __pycache__
+*.html
