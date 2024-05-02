@@ -34,7 +34,7 @@ def run_maa_exe():
     if not os.path.exists(log_folder):
         os.makedirs(log_folder)
     log_file = os.path.join(log_folder, f"{timestamp}.log")
-    subprocess.call([r"F:\MAA\MAA.exe"], stdout=open(log_file, "a"), stderr=subprocess.STDOUT)
+    subprocess.call([r"F:\Git\HSR-Auto\start-maa.bat"], stdout=open(log_file, "a"), stderr=subprocess.STDOUT)
 
 # 在每天的零点和十二点运行 start.bat
 schedule.every().day.at("00:00").do(run_start_script)
