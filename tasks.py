@@ -11,6 +11,7 @@ if not os.path.exists(logs_dir):
 
 def run_start_script():
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    print(f'[{timestamp}] Starting HSR task...')
     log_folder = os.path.join(logs_dir, "hsr")
     if not os.path.exists(log_folder):
         os.makedirs(log_folder)
@@ -19,6 +20,7 @@ def run_start_script():
 
 def run_check_update_script():
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    print(f'[{timestamp}] Checking HSR update...')
     log_folder = os.path.join(logs_dir, "hsr_check_update")
     if not os.path.exists(log_folder):
         os.makedirs(log_folder)
@@ -27,6 +29,7 @@ def run_check_update_script():
 
 def run_maa_exe():
     timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    print(f'[{timestamp}] Starting MAA task...')
     log_folder = os.path.join(logs_dir, "maa")
     if not os.path.exists(log_folder):
         os.makedirs(log_folder)
@@ -45,6 +48,7 @@ schedule.every().day.at("04:30").do(run_maa_exe)
 schedule.every().day.at("12:30").do(run_maa_exe)
 schedule.every().day.at("20:30").do(run_maa_exe)
 
+print('Scheduling tasks...')
 while True:
     schedule.run_pending()
     time.sleep(1)
